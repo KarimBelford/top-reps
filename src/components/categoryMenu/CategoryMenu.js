@@ -27,7 +27,7 @@ const categories = [
     {
       id: 5,
       title: 'Mens',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png'
+      imageUrl: 'https://i.pinimg.com/originals/7f/ef/12/7fef12b9cb83443f2d6e7be618d8ea6b.jpg'
     }
 ]
 
