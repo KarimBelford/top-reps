@@ -1,6 +1,7 @@
 import React from "react";
 import './categoryItem.scss'
 
+// creates each category on website
 const CategoryItem = ({imageUrl, title}) => {
     return (
         <div className = 'category-container'>

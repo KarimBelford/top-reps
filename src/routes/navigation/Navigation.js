@@ -3,7 +3,7 @@ import { Outlet, Link} from "react-router-dom";
 import { ReactComponent as Logo } from '../../assets/plamTree.svg';
 import './Navigation.scss'
 
-
+// Creates navigation component
 const Navigation = () => {
     return (
         <Fragment>

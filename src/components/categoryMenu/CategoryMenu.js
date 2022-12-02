@@ -2,7 +2,7 @@ import React from "react";
 import CategoryItem from "../categoryItem/CategoryItem";
 import './CategoryMenu.scss'
 
-
+// array of categories on the website
 const categories = [
     {
       id: 1,
@@ -31,6 +31,7 @@ const categories = [
     }
 ]
 
+// creates a component for each category
 const CategoryMenu = () => {
     return (
         <div className = 'categories-container'>
