@@ -16,6 +16,8 @@ const Register = () => {
    const [formFields, setFormFields] = useState(defaultForm)
    const {displayName, email, password, confirmPassword} = formFields;
 
+   
+
    const resetForm = () => {
     setFormFields(defaultForm)
    }
@@ -32,7 +34,6 @@ const Register = () => {
             email,
             password
         );
-
         await createUserDocFromAuth(user, {displayName});
         resetForm();
     } catch (error){
