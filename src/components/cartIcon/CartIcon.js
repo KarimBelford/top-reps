@@ -5,13 +5,13 @@ import './CartIcon.scss'
 
 
 const CartIcon = () => {
-    const {setCurrentDropdown,currentDropdown} =  useContext(CartContext)
+    const {setCurrentDropdown,currentDropdown,cartCount} =  useContext(CartContext)
     const toggleCart = () => setCurrentDropdown(!currentDropdown);
     
     return (
         <div className='cart-icon-container'>
             <ShoppingIcon className='shopping-icon' onClick={toggleCart}/>
-            <span className='item-count'>10</span>
+            <span className='item-count'>{cartCount}</span>
         </div>
     )
 }
