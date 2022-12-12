@@ -9,9 +9,9 @@ const CartIcon = () => {
     const toggleCart = () => setCurrentDropdown(!currentDropdown);
     
     return (
-        <CartIconContainer>
+        <CartIconContainer onClick={toggleCart}>
             <ShoppingIconContainer>
-                <ShoppingIcon onClick={toggleCart}/>
+                <ShoppingIcon className='shopping-icon'/>
             </ShoppingIconContainer>
             <ItemCount>{cartCount}</ItemCount>
         </CartIconContainer>

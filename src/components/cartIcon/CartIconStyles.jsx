@@ -8,6 +8,8 @@ export const CartIconContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  
 `
 export const ShoppingIconContainer = styled.div`
   width: 24px;
