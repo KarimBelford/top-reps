@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { createAuthUserWithEmailAndPassword, createUserDocFromAuth } from "../../utils/firebaseUtils/firebaseUtils";
 import FormInput from "../formInput/FormInput";
 import Button from "../button/Button";
-import './Register.scss'
+import { SignUpContainer, SignUpHeader } from "./RegisterStyles";
 
 const defaultForm = {
     displayName: '',
@@ -53,8 +53,8 @@ const Register = () => {
 
    }
     return(
-        <div className='sign-up-container'>
-            <h2>Don't have an account?</h2>
+        <SignUpContainer>
+            <SignUpHeader>Don't have an account?</SignUpHeader>
             <span>Register with your email and password</span>
             <form onSubmit={handleSubmit}>             
                 <FormInput label='Name' type='text' required onChange={handleChange} name='displayName' value={displayName}/>
@@ -63,8 +63,7 @@ const Register = () => {
                 <FormInput label= 'Confirm Password' type= 'password' required onChange={handleChange} name='confirmPassword' value= {confirmPassword}/>
                 <Button type= 'submit'>Register</Button>
             </form>
-
-        </div>
+        </SignUpContainer>
     )
 }
 

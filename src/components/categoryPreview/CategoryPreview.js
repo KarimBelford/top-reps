@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../productCard/ProductCard";
-import './categoryPreview.scss'
+import { CategoryPreviewContainer, PreviewContainer } from "./CategoryPreviewStyles";
 
 const CategoryPreview = ({title, products}) => {
 
     return(
-        <div className='category-preview-container'>
+        <CategoryPreviewContainer>
             <Link to = {title}>
                 <h2>
                     <span>{title.toUpperCase()}</span>
                 </h2>
             </Link>
-            <div className='preview'>
+            <PreviewContainer>
                 {
                    products
                    .filter((_,idx) => idx < 4 )
@@ -20,9 +20,9 @@ const CategoryPreview = ({title, products}) => {
                    <ProductCard key={product.id} product = {product}/>) 
                 }
 
-            </div>
+            </PreviewContainer>
 
-        </div>
+        </CategoryPreviewContainer>
     )
 
 }

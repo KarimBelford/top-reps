@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import { signInWithGooglePopup, createUserDocFromAuth, signInAuthUserWithEmailAndPassword } from "../../utils/firebaseUtils/firebaseUtils";
+import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../../utils/firebaseUtils/firebaseUtils";
 import FormInput from "../formInput/FormInput";
-import Button from "../button/Button";
-import './SignIn.scss'
+import Button, {ButtonTypeClass} from "../button/Button";
+import { SignInContainer, SignInHeader,ButtonContainer } from "./SignInStyles";
 
 const defaultForm = { 
     email: '',
@@ -29,7 +29,7 @@ const SignIn = () => {
     event.preventDefault();
    
     try{
-        const {user} = await signInAuthUserWithEmailAndPassword(email, password)
+        await signInAuthUserWithEmailAndPassword(email, password)
         
         resetForm();
     } catch (error){
@@ -54,19 +54,19 @@ const SignIn = () => {
 
    }
     return(
-        <div className='sign-up-container'>
-            <h2>Already have an account?</h2>
+        <SignInContainer>
+            <SignInHeader>Already have an account?</SignInHeader>
             <span>Sign in with your email and password</span>
             <form onSubmit={handleSubmit}>             
                 <FormInput label= 'Email' type= 'email' required onChange={handleChange} name='email' value= {email}/>               
                 <FormInput label= 'Password' type= 'password'required onChange={handleChange} name='password' value= {password}/>  
-                <div className='buttons-container'>             
+                <ButtonContainer>             
                     <Button type= 'submit'>Sign in</Button>
-                    <Button type= 'button' buttonType='google' onClick={logGoogleUser}>Google sign in</Button>
-                </div>
+                    <Button type= 'button' buttonType= {ButtonTypeClass.google} onClick={logGoogleUser}>Google sign in</Button>
+                </ButtonContainer>
             </form>
 
-        </div>
+        </SignInContainer>
     )
 }
 
