@@ -1,17 +1,18 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment} from "react";
 import { Outlet} from "react-router-dom";
+import {useSelector} from 'react-redux';
 import CartIcon from "../../components/cartIcon/CartIcon";
 import CartDropdown from "../../components/cartDropdown/CartDropdown";
 import { ReactComponent as Logo } from '../../assets/plamTree.svg';
-import { UserContext } from "../../contexts/UserContext";
-import { CartContext } from "../../contexts/CartContext";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import { signOutUser } from "../../utils/firebaseUtils/firebaseUtils";
 import {NavigationContainer, LogoContainer, LinksContainer, NavLink} from './NavigationStyles'
+import { selectCartDropdown } from "../../store/cart/cart.selector";
 
 // Creates navigation component
 const Navigation = () => {
-    const {currentUser} = useContext(UserContext);
-    const {currentDropdown} = useContext(CartContext)
+    const currentUser = useSelector(selectCurrentUser);
+    const cartDropdown = useSelector(selectCartDropdown)
     return (
         <Fragment>
             <NavigationContainer>
@@ -30,7 +31,7 @@ const Navigation = () => {
                     }
                     <CartIcon/>
                 </LinksContainer>
-                {currentDropdown && <CartDropdown/>}
+                {cartDropdown && <CartDropdown/>}
             </NavigationContainer>
             <Outlet/>
         </Fragment>
